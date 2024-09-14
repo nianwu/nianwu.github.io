@@ -181,6 +181,100 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/15/%E9%9A%8F%E6%89%8B%E8%AE%B0-mycli-%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/31959790?v=4">
+      <meta itemprop="name" content="nianwu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="nianwu's blogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/09/15/%E9%9A%8F%E6%89%8B%E8%AE%B0-mycli-%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">随手记-mycli 使用记录</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-09-15 01:25:10 / 修改时间：01:33:44" itemprop="dateCreated datePublished" datetime="2024-09-15T01:25:10+08:00">2024-09-15</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>162</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1>介绍</h1>
+<p>mycli 是一个命令, 用于在 linux 中连接mysql数据库并进行操作</p>
+<h1>基础命令</h1>
+<ol>
+<li>使用参数连接: <code>mycli -h 11.11.11.11 -P 3306 -u root -p password db_1</code></li>
+<li>使用连接字符串连接: <code>mycli mysql://root:password@11.11.11.11:3306/db_1</code></li>
+<li>执行指定文件: <code>mycli mysql://root:password@11.11.11.11:3306/db_1 &lt; path/to/script.sql</code></li>
+<li>执行指定文件并将日志记录到指定文件: <code>mycli mysql://root:password@11.11.11.11:3306/db_1 -o output.txt &lt; path/to/script.sql</code>
+<blockquote>
+<p>该命令并未测试是否有效</p>
+</blockquote>
+</li>
+</ol>
+<h1>常用sql</h1>
+<blockquote>
+<p>该标题下所有sql都需要使用<a href="#%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4">基础命令</a> 连接之后使用</p>
+</blockquote>
+<ol>
+<li>列出数据库: <code>show databases</code></li>
+<li>列出表: <code>show tables</code></li>
+<li>查看帮助: <code>help</code></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/07/hexo-next-%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -887,14 +981,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
