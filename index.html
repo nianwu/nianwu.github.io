@@ -206,7 +206,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2024-09-15 01:25:10 / 修改时间：03:27:13" itemprop="dateCreated datePublished" datetime="2024-09-15T01:25:10+08:00">2024-09-15</time>
+              <time title="创建时间：2024-09-15 01:25:10 / 修改时间：03:34:34" itemprop="dateCreated datePublished" datetime="2024-09-15T01:25:10+08:00">2024-09-15</time>
             </span>
 
           <br>
@@ -215,7 +215,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>425</span>
+              <span>435</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -270,6 +270,8 @@
 </ol>
 <h1>git同步状态检测</h1>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/zsh</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 检测本地git状态</span></span><br><span class="line">local_git_status=$(git status --porcelain)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检测本地git是否与远端git一致</span></span><br><span class="line">remote_git_status=$(git ls-remote --exit-code origin HEAD)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ $? -ne 0 ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;本地git与远端git不一致，无法继续执行脚本&quot;</span></span><br><span class="line">  <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果本地git状态不为空</span></span><br><span class="line"><span class="keyword">if</span> [ -n <span class="string">&quot;<span class="variable">$local_git_status</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;本地git状态不为空，无法继续执行脚本&quot;</span></span><br><span class="line">  <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果所有检查都通过，可以继续执行脚本</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;所有检查通过，脚本可以继续执行&quot;</span></span><br></pre></td></tr></table></figure>
+<h1>git 中文乱码</h1>
+<p><code>git config --global core.quotepath false</code></p>
 
       
     </div>
