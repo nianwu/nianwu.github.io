@@ -181,6 +181,128 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/22/%E4%BC%98%E9%9B%85%E7%9A%84%E4%BD%BF%E7%94%A8cdn/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/31959790?v=4">
+      <meta itemprop="name" content="nianwu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="nianwu's blogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/09/22/%E4%BC%98%E9%9B%85%E7%9A%84%E4%BD%BF%E7%94%A8cdn/" class="post-title-link" itemprop="url">优雅的使用cdn</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-09-22 04:27:33 / 修改时间：04:28:03" itemprop="dateCreated datePublished" datetime="2024-09-22T04:27:33+08:00">2024-09-22</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>705</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1>cdn 网站的选择</h1>
+<ul>
+<li>我习惯使用 <a target="_blank" rel="noopener" href="https://unpkg.com/">unpkg</a>, 因为其跟 npm 绑定, 软件包发布到 npm 上, 就可以使用该cdn</li>
+</ul>
+<h1>使用方式, 使用 moment 作为例子</h1>
+<ol>
+<li>在 <a target="_blank" rel="noopener" href="https://www.npmjs.com/">npm</a> 网站中搜索 moment</li>
+<li>点开 code 标签</li>
+<li>观察目录结构, 直接目录下没有 min.js 结尾文件, 但是有个 min 目录</li>
+<li>点开 min 目录, 发现 <code>locales.min.js</code> <code>moment-with-locales.min.js</code> <code>moment.min.js</code></li>
+<li>根据项目了解, 这三个文件分别对应 moment 本地化, moment 本体 + moment 本地化, moment 本体(不含本地化)</li>
+<li>依据习惯, 使用 <code>moment-with-locales.min.js</code></li>
+<li>手动拼接目录: <a target="_blank" rel="noopener" href="https://unpkg.com/moment/min/moment-with-locales.min.js">https://unpkg.com/moment/min/moment-with-locales.min.js</a> 并点击访问</li>
+<li>目录访问成功, 证明路径没有问题</li>
+<li>将路径组装为 js 标签: <code>&lt;script src=&quot;https://unpkg.com/moment/min/moment-with-locales.min.js&quot; /&gt;</code></li>
+<li>将 js 标签放到 h5 中</li>
+<li>在 h5 js 代码中使用: <code>console.log(moment)</code></li>
+</ol>
+<h1>例外情况</h1>
+<ol>
+<li>大部分情况下, 使用 cdn 导入的包会生成一个与包名相同的变量, 如 moment 包, 会生成 moment 变量, 直接在 h5 代码中调用即可</li>
+<li>然而少部分包, 由于使用量大, 其生成的变量名与包名不同, 而是使用一些符号, 例子如下:
+<ol>
+<li>lodash =&gt; _</li>
+<li>jquery =&gt; $</li>
+</ol>
+</li>
+</ol>
+<h1>如何寻找全局变量名, 以 lodash 为例</h1>
+<h2 id="查看源码">查看源码</h2>
+<ol>
+<li>浏览器中搜索: <code>unpkg lodash</code>, 点击进入网页版
+<blockquote>
+<p>或者直接拼接链接进入网页版: <code>https://unpkg.com/browse/lodash@4.17.21/</code><br>
+最后一个 / 不能省略</p>
+</blockquote>
+</li>
+<li>依据经验, 搜索 <code>lodash.js</code>, 点开查看源码如下</li>
+</ol>
+<blockquote>
+<p>也可能叫其他的, 如 index.js, lodash.mjs 等<br>
+也可以直接查看 <code>lodash.min.js</code> , 因为代码压缩过, 可读性不好, 需要复制下来通过编辑器格式化后查看<br>
+不想下载也可以试试通过浏览器的请求预览, 看是否能够格式化代码</p>
+</blockquote>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">;(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/** Detect free variable `global` from Node.js. */</span></span><br><span class="line">  <span class="keyword">var</span> freeGlobal = <span class="keyword">typeof</span> <span class="variable language_">global</span> == <span class="string">&#x27;object&#x27;</span> &amp;&amp; <span class="variable language_">global</span> &amp;&amp; <span class="variable language_">global</span>.<span class="property">Object</span> === <span class="title class_">Object</span> &amp;&amp; <span class="variable language_">global</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/** Detect free variable `self`. */</span></span><br><span class="line">  <span class="keyword">var</span> freeSelf = <span class="keyword">typeof</span> self == <span class="string">&#x27;object&#x27;</span> &amp;&amp; self &amp;&amp; self.<span class="property">Object</span> === <span class="title class_">Object</span> &amp;&amp; self;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/** Used as a reference to the global object. */</span></span><br><span class="line">  <span class="keyword">var</span> root = freeGlobal || freeSelf || <span class="title class_">Function</span>(<span class="string">&#x27;return this&#x27;</span>)();</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="comment">// Export lodash.</span></span><br><span class="line">  <span class="keyword">var</span> _ = <span class="title function_">runInContext</span>();</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Some AMD build optimizers, like r.js, check for condition patterns like:</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> define == <span class="string">&#x27;function&#x27;</span> &amp;&amp; <span class="keyword">typeof</span> define.<span class="property">amd</span> == <span class="string">&#x27;object&#x27;</span> &amp;&amp; define.<span class="property">amd</span>) &#123;</span><br><span class="line">    <span class="comment">// Expose Lodash on the global object to prevent errors when Lodash is</span></span><br><span class="line">    <span class="comment">// loaded by a script tag in the presence of an AMD loader.</span></span><br><span class="line">    <span class="comment">// See http://requirejs.org/docs/errors.html#mismatch for more details.</span></span><br><span class="line">    <span class="comment">// Use `_.noConflict` to remove Lodash from the global object.</span></span><br><span class="line">    root.<span class="property">_</span> = _;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Define as an anonymous module so, through path mapping, it can be</span></span><br><span class="line">    <span class="comment">// referenced as the &quot;underscore&quot; module.</span></span><br><span class="line">    <span class="title function_">define</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> _;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// Check for `exports` after `define` in case a build optimizer adds it.</span></span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (freeModule) &#123;</span><br><span class="line">    <span class="comment">// Export for Node.js.</span></span><br><span class="line">    (freeModule.<span class="property">exports</span> = _).<span class="property">_</span> = _;</span><br><span class="line">    <span class="comment">// Export for CommonJS support.</span></span><br><span class="line">    freeExports.<span class="property">_</span> = _;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// Export to the global object.</span></span><br><span class="line">    root.<span class="property">_</span> = _;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;.<span class="title function_">call</span>(<span class="variable language_">this</span>));</span><br></pre></td></tr></table></figure>
+<ol>
+<li>省略的都是定义方法的代码, 不会实际执行</li>
+<li>依据经验, global, self 等全局变量是 import 之前时代的 打包约定, 这里忽略即可</li>
+<li>所以 root 变量即为 this, 所以在 h5 中直接使用 _ 即可获得 lodash 对象, 并调用 debounce 等方法</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/21/%E5%BF%AB%E9%80%9F%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AA-ele-vue-h5-%E9%A1%B5%E9%9D%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -285,7 +407,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-09-21 19:51:37" itemprop="dateModified" datetime="2024-09-21T19:51:37+08:00">2024-09-21</time>
+                <time title="修改时间：2024-09-22 04:28:13" itemprop="dateModified" datetime="2024-09-22T04:28:13+08:00">2024-09-22</time>
               </span>
 
           <br>
@@ -294,7 +416,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>904</span>
+              <span>918</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -313,7 +435,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1>js 写法中 .toString 和 + '' 的区别</h1>
+          <h1>todo</h1>
+<ul>
+<li>[ ] 使用 unpkg 创建你的代码包( 简单, 高效, 可使用 unpkg 快速引用)</li>
+<li>[ ] el-card 使用起来和 div 有些区别, 如 div 可以设置 max-height: 100%来限制高度, 但是元素放到 el-box 中就不可以使用了</li>
+<li>[ ] 用于方便快捷生成 vue 代码的网页</li>
+</ul>
+<h1>js 写法中 .toString 和 + '' 的区别</h1>
 <ul>
 <li>
 <p>一些项目中会使用 + '' 来代替 .toString() 方法, 该写法在部分情况下会失效, 究其原因是因为 <code>+ ''</code> 本质上是运算符, 调用的 <code>valueOf</code> 方法, 又因为大部分对象的 valueOf 和 toString 运算结果一致, 所以没有问题, 但是使用复杂的值类型对象, 如 moment 的时候, 就会出现问题</p>
@@ -327,11 +455,6 @@
 <li>
 <p>举例:</p>
 </li>
-</ul>
-<h1>todo</h1>
-<ul>
-<li>[ ] 使用 unpkg 创建你的代码包( 简单, 高效, 可使用 unpkg 快速引用)</li>
-<li>[ ] el-card 使用起来和 div 有些区别, 如 div 可以设置 max-height: 100%来限制高度, 但是元素放到 el-box 中就不可以使用了</li>
 </ul>
 <h1>vue 常用配置</h1>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Vue</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">$console</span> = <span class="variable language_">console</span></span><br><span class="line"><span class="title class_">Vue</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">$moment</span> = moment</span><br></pre></td></tr></table></figure>
@@ -1124,7 +1247,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1171,13 +1294,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">2k</span>
+    <span title="站点总字数">3k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7 分钟</span>
+    <span title="站点阅读时长">9 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
