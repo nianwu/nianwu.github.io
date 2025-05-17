@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+  </script>
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="nianwu&#39;s blogs">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="nianwu&#39;s blogs">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="nianwu">
+<meta property="article:tag" content="程序员">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>nianwu's blogs</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">nianwu's blogs</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" title="Search (Ctrl + K)">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/nianwu" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/05/17/nodejs-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98-%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/31959790?v=4">
+      <meta itemprop="name" content="nianwu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="nianwu's blogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/05/17/nodejs-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98-%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/" class="post-title-link" itemprop="url">Node.js 视频下载工具开发总结</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-05-17 21:25:36 / 修改时间：22:11:42" itemprop="dateCreated datePublished" datetime="2025-05-17T21:25:36+08:00">2025-05-17</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>623</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1>速览</h1>
+<ul>
+<li>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://gitee.com/nianwu/yll_linag_shi_ke_tang/tree/dev/tools">mai_ke/tools</a></p>
+</li>
+<li>
+<p>核心依赖：<code>npm i esbuild pkg</code></p>
+<blockquote>
+<ul>
+<li><code>esbuild</code>：将源码及依赖打包成单一 JS 文件</li>
+<li><code>pkg</code>：将 JS 文件打包为可执行程序（如 <code>.exe</code>）</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p><code>package.json</code> 脚本配置：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;start&quot;</span><span class="punctuation">:</span> <span class="string">&quot;node src/index.js&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;build&quot;</span><span class="punctuation">:</span> <span class="string">&quot;esbuild src/index.js --bundle --platform=node --outfile=dist/app.js &amp;&amp; pkg dist/app.js --targets node16-win-x64 --output dist/app.exe &amp;&amp; echo dist/app.exe&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h1>技术要点拆解</h1>
+<h2 id="一、打包策略">一、打包策略</h2>
+<ul>
+<li>使用 <code>pkg</code> 将 Node.js 项目打包为 Windows 可执行程序；</li>
+<li>对于 <code>import</code> 语法支持有限，推荐先用 <code>esbuild</code> 打包成单一 CommonJS 文件；</li>
+<li><code>pkg</code> 无法打包动态 <code>require()</code>，必须预处理；</li>
+<li>示例命令：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg src/index.js -t node16-win-x64 -o dist/app.exe</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="二、ES6-模块兼容处理">二、ES6 模块兼容处理</h2>
+<ul>
+<li>
+<p>Webpack 配置复杂，未采用；</p>
+</li>
+<li>
+<p>使用 <code>esbuild</code> 简单快速，推荐用法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">esbuild src/index.js --bundle --platform=node --outfile=dist/app.js</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>--bundle</code>：将依赖打入同一文件；</li>
+<li><code>--platform=node</code>：打包为 Node 环境可执行；</li>
+<li><code>--outfile</code>：输出文件路径。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1>三、视频下载与进度条展示</h1>
+<p>文件下载核心逻辑位于 <code>utils/download_file</code>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">download_file</span>(<span class="params">url, output_path</span>) &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (process.<span class="property">platform</span> === <span class="string">&#x27;win32&#x27;</span>) &#123;</span><br><span class="line">      output_path = output_path.<span class="title function_">replace</span>(<span class="regexp">/\//g</span>, <span class="string">&#x27;\\&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    fs.<span class="title function_">access</span>(output_path)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`文件已存在，跳过下载: <span class="subst">$&#123;output_path&#125;</span>`</span>)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  &#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">    <span class="comment">// 文件不存在，继续下载</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> outputDir = path.<span class="title function_">dirname</span>(output_path)</span><br><span class="line">  <span class="keyword">await</span> fs.<span class="property">promises</span>.<span class="title function_">mkdir</span>(outputDir, &#123; <span class="attr">recursive</span>: <span class="literal">true</span> &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`正在下载: &quot;<span class="subst">$&#123;output_path&#125;</span>&quot;，按 Ctrl+C 可中断`</span>)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> &#123; data, headers &#125; = <span class="keyword">await</span> <span class="title function_">axios</span>(&#123;</span><br><span class="line">    url,</span><br><span class="line">    <span class="attr">method</span>: <span class="string">&#x27;GET&#x27;</span>,</span><br><span class="line">    <span class="attr">responseType</span>: <span class="string">&#x27;stream&#x27;</span></span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> totalLength = <span class="built_in">parseInt</span>(headers[<span class="string">&#x27;content-length&#x27;</span>], <span class="number">10</span>)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`文件大小: <span class="subst">$&#123;(totalLength / <span class="number">1024</span> / <span class="number">1024</span>).toFixed(<span class="number">2</span>)&#125;</span> MB`</span>)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> progressBar = <span class="keyword">new</span> <span class="title class_">ProgressBar</span>(<span class="string">&#x27;下载进度 [:bar] :percent :etas&#x27;</span>, &#123;</span><br><span class="line">    <span class="attr">width</span>: <span class="number">40</span>,</span><br><span class="line">    <span class="attr">complete</span>: <span class="string">&#x27;=&#x27;</span>,</span><br><span class="line">    <span class="attr">incomplete</span>: <span class="string">&#x27; &#x27;</span>,</span><br><span class="line">    <span class="attr">total</span>: totalLength</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> writer = <span class="title function_">createWriteStream</span>(output_path)</span><br><span class="line">  data.<span class="title function_">on</span>(<span class="string">&#x27;data&#x27;</span>, <span class="function"><span class="params">chunk</span> =&gt;</span> progressBar.<span class="title function_">tick</span>(chunk.<span class="property">length</span>))</span><br><span class="line">  data.<span class="title function_">pipe</span>(writer)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    writer.<span class="title function_">on</span>(<span class="string">&#x27;finish&#x27;</span>, resolve)</span><br><span class="line">    writer.<span class="title function_">on</span>(<span class="string">&#x27;error&#x27;</span>, reject)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="四、Axios-配置-query-参数">四、Axios 配置 query 参数</h2>
+<p>通过拦截器自动将 <code>query</code> 字段序列化并拼接到 URL 上：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">axios.<span class="property">interceptors</span>.<span class="property">request</span>.<span class="title function_">use</span>(</span><br><span class="line">  <span class="function">(<span class="params">config</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (config.<span class="property">query</span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> params = <span class="keyword">new</span> <span class="title class_">URLSearchParams</span>(config.<span class="property">query</span>).<span class="title function_">toString</span>()</span><br><span class="line">      config.<span class="property">url</span> += (config.<span class="property">url</span>.<span class="title function_">includes</span>(<span class="string">&#x27;?&#x27;</span>) ? <span class="string">&#x27;&amp;&#x27;</span> : <span class="string">&#x27;?&#x27;</span>) + params</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> config</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function">(<span class="params">error</span>) =&gt;</span> <span class="title class_">Promise</span>.<span class="title function_">reject</span>(error)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="五、文件名合法化处理">五、文件名合法化处理</h2>
+<p>防止文件名中包含非法字符导致保存失败：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">format_file_name</span>(<span class="params">name</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> invalidChars = <span class="regexp">/[&lt;&gt;:&quot;/\\|?*\x00-\x1F]/g</span></span><br><span class="line">  <span class="keyword">return</span> name.<span class="title function_">replace</span>(invalidChars, <span class="string">&#x27;_&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="六、数据展示与调试">六、数据展示与调试</h2>
+<p>通过子进程方式将数据输出至 VS Code 编辑器中：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">open_vscode_with_data</span> = (<span class="params">data</span>) =&gt; &#123;</span><br><span class="line">  data = <span class="title function_">try_parse_json</span>(data)</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> data !== <span class="string">&#x27;string&#x27;</span>) &#123;</span><br><span class="line">    data = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(data, <span class="literal">null</span>, <span class="number">2</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> child = <span class="title function_">spawn</span>(<span class="string">&#x27;code&#x27;</span>, [<span class="string">&#x27;-&#x27;</span>], &#123;</span><br><span class="line">    <span class="attr">stdio</span>: [<span class="string">&#x27;pipe&#x27;</span>, <span class="string">&#x27;inherit&#x27;</span>, <span class="string">&#x27;inherit&#x27;</span>]</span><br><span class="line">  &#125;)</span><br><span class="line">  child.<span class="property">stdin</span>.<span class="title function_">write</span>(data)</span><br><span class="line">  child.<span class="property">stdin</span>.<span class="title function_">end</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h1>后续功能展望</h1>
+<h2 id="✅-数据展示优化">✅ 数据展示优化</h2>
+<ul>
+<li>根据内容长度自动切换输出方式（控制台或编辑器）；</li>
+<li>自动检测系统中是否安装 VS Code / Vim / Sublime，并优先选择可用编辑器；</li>
+</ul>
+<h2 id="✅-下载逻辑增强">✅ 下载逻辑增强</h2>
+<ul>
+<li>支持并发下载；</li>
+<li>添加下载重试、断点续传机制；</li>
+<li>UI 层支持总进度条 + 单任务进度条；</li>
+</ul>
+<hr>
+<p>如有建议或使用问题，欢迎留言交流！</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/02/21/%E6%90%9C%E7%8B%97%E8%BE%93%E5%85%A5%E6%B3%95%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9F%AD%E8%AF%AD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/31959790?v=4">
+      <meta itemprop="name" content="nianwu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="nianwu's blogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/02/21/%E6%90%9C%E7%8B%97%E8%BE%93%E5%85%A5%E6%B3%95%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9F%AD%E8%AF%AD/" class="post-title-link" itemprop="url">搜狗输入法自定义短语</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-02-21 17:16:09 / 修改时间：17:51:46" itemprop="dateCreated datePublished" datetime="2025-02-21T17:16:09+08:00">2025-02-21</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>604</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">;  搜狗输入法--自定义短语配置文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment">;  自定义短语说明：</span></span><br><span class="line"><span class="comment">;  1、自定义短语支持多行、空格、指定位置。</span></span><br><span class="line"><span class="comment">;  2、每条自定义短语最多支持30000个汉字，总共支持100000条自定义短语。</span></span><br><span class="line"><span class="comment">;  3、自定义短语的格式如下：</span></span><br><span class="line"></span><br><span class="line"><span class="comment">;  单行的格式：</span></span><br><span class="line"><span class="comment">;  字符串+英文逗号+数字（指定排序位置）=短语</span></span><br><span class="line"></span><br><span class="line"><span class="comment">;  多行的格式：</span></span><br><span class="line"><span class="comment">;  字符串+英文逗号+数字（指定排序位置）=</span></span><br><span class="line"><span class="comment">;  多行短语</span></span><br><span class="line"></span><br><span class="line"><span class="comment">;  具体格式可以参考下面的实例。</span></span><br><span class="line"><span class="comment">;  4、最多支持100000行自定义短语。</span></span><br><span class="line"><span class="comment">;  5、自定义短语的用途有：快捷输入手机号、邮箱、诗词、小短文等，大家可以自由发挥。</span></span><br><span class="line"><span class="comment">;  6、时间函数功能。具体定义格式如下：;  字符串+英文逗号+数字（指定排序位置）=#表达式</span></span><br><span class="line"><span class="comment">;  注意：表达式以英文#开头，后面的表达式中的每一个函数的前面都包含有英文$。</span></span><br><span class="line"><span class="comment">;  函数表如下：</span></span><br><span class="line"><span class="comment">;  函数    	含义    	举例</span></span><br><span class="line"><span class="comment">;  $year    	年(4位) 	2006、2008</span></span><br><span class="line"><span class="comment">;  $year_yy	年(2位) 	06、08</span></span><br><span class="line"><span class="comment">;  $month     	月      	12、8、3</span></span><br><span class="line"><span class="comment">;  $month_mm  	月      	12、08、03		//此函数在输入法3.1版之后（含）有效</span></span><br><span class="line"><span class="comment">;  $day     	日      	3、13、22</span></span><br><span class="line"><span class="comment">;  $day_dd	日	       03、13、22	//此函数在输入法3.1版之后（含）有效</span></span><br><span class="line"><span class="comment">;  $weekday 	星期    	0、1、2、5、6</span></span><br><span class="line"><span class="comment">;  $fullhour	时(24小时制)  	2、8、13、23</span></span><br><span class="line"><span class="comment">;  $fullhour_hh	时(24小时制)  	02、08、13、23		//此函数在输入法3.1版之后（含）有效</span></span><br><span class="line"><span class="comment">;  $halfhour	时(12小时制)	2、8、10、11</span></span><br><span class="line"><span class="comment">;  $halfhour_hh	时(12小时制)	02、08、10、11		//此函数在输入法3.1版之后（含）有效</span></span><br><span class="line"><span class="comment">;  $ampm    	AM、PM(英)	AM、PM（大写）</span></span><br><span class="line"><span class="comment">;  $minute  	分      	02、08、15、28</span></span><br><span class="line"><span class="comment">;  $second  	秒      	02、08、15、28</span></span><br><span class="line"><span class="comment">;  $year_cn 	年(中文4位)	二〇〇六</span></span><br><span class="line"><span class="comment">;  $year_yy_cn	年(中文2位)	〇六</span></span><br><span class="line"><span class="comment">;  $month_cn	月(中文)	十二、八、三</span></span><br><span class="line"><span class="comment">;  $day_cn  	日(中文)	三、十三、二十二</span></span><br><span class="line"><span class="comment">;  $weekday_cn 	星期(中文)	日、一、二、五、六</span></span><br><span class="line"><span class="comment">;  $fullhour_cn	时(中文24时制)	二、八、十三、二十三</span></span><br><span class="line"><span class="comment">;  $halfhour_cn	时(中文12时制)	二、八、一、十一</span></span><br><span class="line"><span class="comment">;  $ampm_cn 	上午下午(中文)	上午、下午</span></span><br><span class="line"><span class="comment">;  $minute_cn	分(中文)	零二、零八、十五、二十八</span></span><br><span class="line"><span class="comment">;  $second_cn	秒(中文)	零二、零八、十五、二十八</span></span><br><span class="line"><span class="comment">;  具体你可以参考这个文件最下面的例子，实际体验一下就明白了。</span></span><br><span class="line"><span class="comment">;  你可以用自定义短语来做一个带动态时间的多行回信落款。</span></span><br><span class="line"><span class="comment">;  ss,1=#$year年$month月$day_dd日 $fullhour:$minute:$second</span></span><br><span class="line"></span><br><span class="line">from,<span class="attr">3</span>=from zhiyuan_yuan@qq.com at <span class="comment">#$year-$month_mm-$day_dd $fullhour:$minute:$second </span></span><br><span class="line">ts,3=<span class="comment">#$year$month_mm$day_dd$fullhour$minute$second</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/02/17/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/31959790?v=4">
+      <meta itemprop="name" content="nianwu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="nianwu's blogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/02/17/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-02-17 14:51:53" itemprop="dateCreated datePublished" datetime="2025-02-17T14:51:53+08:00">2025-02-17</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>78</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start">Quick Start</h2>
+<h3 id="Create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/02/09/vue-%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/31959790?v=4">
+      <meta itemprop="name" content="nianwu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="nianwu's blogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/02/09/vue-%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">vue 项目配置</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-02-09 17:32:47" itemprop="dateCreated datePublished" datetime="2025-02-09T17:32:47+08:00">2025-02-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-02-17 14:51:53" itemprop="dateModified" datetime="2025-02-17T14:51:53+08:00">2025-02-17</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>90</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1>vite.config.js</h1>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// https://vite.dev/config/</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">defineConfig</span>(&#123;</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    <span class="title function_">vue</span>(),</span><br><span class="line">    <span class="title function_">vueDevTools</span>(),</span><br><span class="line">    <span class="comment">// 使用 ele plus 的自动导入</span></span><br><span class="line">    <span class="title class_">AutoImport</span>(&#123;</span><br><span class="line">      <span class="attr">resolvers</span>: [<span class="title class_">ElementPlusResolver</span>()]</span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="comment">// 使用 ele plus 的自动导入</span></span><br><span class="line">    <span class="title class_">Components</span>(&#123;</span><br><span class="line">      <span class="attr">resolvers</span>: [<span class="title class_">ElementPlusResolver</span>()]</span><br><span class="line">    &#125;)</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">resolve</span>: &#123;</span><br><span class="line">    <span class="comment">// 在 import 中使用 @ 代替 src</span></span><br><span class="line">    <span class="attr">alias</span>: &#123;</span><br><span class="line">      <span class="string">&#x27;@&#x27;</span>: <span class="title function_">fileURLToPath</span>(<span class="keyword">new</span> <span class="title function_">URL</span>(<span class="string">&#x27;./src&#x27;</span>, <span class="keyword">import</span>.<span class="property">meta</span>.<span class="property">url</span>))</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 使 import @/button 的时候导入 @/button/index.vue</span></span><br><span class="line">    <span class="attr">extensions</span>: [<span class="string">&#x27;.vue&#x27;</span>, <span class="string">&#x27;.js&#x27;</span>, <span class="string">&#x27;/index.js&#x27;</span>, <span class="string">&#x27;/index.vue&#x27;</span>]</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 允许内网访问</span></span><br><span class="line">  <span class="attr">server</span>: &#123; <span class="attr">host</span>: <span class="literal">true</span> &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h1>jsconfig.json</h1>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;compilerOptions&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;remark&quot;</span><span class="punctuation">:</span> <span class="string">&quot;使vscode识别 import 中的 @&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;paths&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;@/*&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;./src/*&quot;</span></span><br><span class="line">      <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;exclude&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="string">&quot;node_modules&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;dist&quot;</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/02/09/moment-%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/31959790?v=4">
+      <meta itemprop="name" content="nianwu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="nianwu's blogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/02/09/moment-%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">moment 配置</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-02-09 17:28:58" itemprop="dateCreated datePublished" datetime="2025-02-09T17:28:58+08:00">2025-02-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-02-17 14:51:53" itemprop="dateModified" datetime="2025-02-17T14:51:53+08:00">2025-02-17</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>126</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1>参考文档</h1>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://momentjs.cn/docs/">参考文档</a></li>
+</ul>
+<h1>基本配置</h1>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;moment/dist/locale/zh-cn&#x27;</span></span><br><span class="line">moment.<span class="title function_">locale</span>(<span class="string">&#x27;zh-cn&#x27;</span>)</span><br><span class="line"></span><br><span class="line">app.<span class="property">config</span>.<span class="property">globalProperties</span>.<span class="property">$moment</span> = moment</span><br><span class="line">moment.<span class="property">defaultFormat</span> = <span class="string">&#x27;YYYY-MM-DD HH:mm:ss&#x27;</span></span><br></pre></td></tr></table></figure>
+<h1>特殊序列化</h1>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> hours = <span class="title function_">moment</span>(dt).<span class="title function_">hours</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断时间段（早、中、晚）</span></span><br><span class="line"><span class="keyword">let</span> timePeriod = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">if</span> (hours &lt; <span class="number">12</span>) &#123;</span><br><span class="line">  timePeriod = <span class="string">&#x27;早&#x27;</span> <span class="comment">// 0:00 ~ 11:59 为早</span></span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (hours &lt; <span class="number">14</span>) &#123;</span><br><span class="line">  timePeriod = <span class="string">&#x27;中午&#x27;</span> <span class="comment">// 12:00 ~ 13:59 为中午</span></span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (hours &lt; <span class="number">18</span>) &#123;</span><br><span class="line">  timePeriod = <span class="string">&#x27;下午&#x27;</span> <span class="comment">// 14:00 ~ 17:59 为下午</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  timePeriod = <span class="string">&#x27;晚&#x27;</span> <span class="comment">// 18:00 ~ 23:59 为晚</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 格式化日期为 &quot;MM月DD日早/中午/下午/晚：HH:mm&quot;</span></span><br><span class="line"><span class="keyword">return</span> <span class="title function_">moment</span>(dt).<span class="title function_">format</span>(<span class="string">`MM月DD日<span class="subst">$&#123;timePeriod&#125;</span>：HH:mm`</span>)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/06/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E5%AE%9E%E6%88%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/31959790?v=4">
+      <meta itemprop="name" content="nianwu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="nianwu's blogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/01/06/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E5%AE%9E%E6%88%98/" class="post-title-link" itemprop="url">微信支付实战</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-01-06 20:27:56" itemprop="dateCreated datePublished" datetime="2025-01-06T20:27:56+08:00">2025-01-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-02-17 14:51:53" itemprop="dateModified" datetime="2025-02-17T14:51:53+08:00">2025-02-17</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>121</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1>背景知识</h1>
+<ul>
+<li>参考视频: <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1864y1E7JX/?share_source=copy_web&amp;vd_source=109f1c93f287e9d72b3dd3a83e94ca49">2024版！微信开放平台接入指南（OAuth2.0 登录 支付系统核心）实战教程</a></li>
+<li>微信支付需要oauth2.0</li>
+<li>公众号需要商业资质认证 300元/次</li>
+<li>需要申请
+<ul>
+<li><a target="_blank" rel="noopener" href="https://open.weixin.qq.com">微信登录</a> 服务</li>
+<li><a target="_blank" rel="noopener" href="https://pay.weixin.qq.com">微信支付</a> 服务</li>
+<li>网站应用</li>
+<li>服务号 用于绑定商户 和 绑定公众号 appid</li>
+</ul>
+</li>
+<li>需要在公众号的<strong>公众号设置</strong>&gt;<strong>申请微信认证</strong></li>
+<li>ngrok 免费 https 映射</li>
+</ul>
+<h1>探索</h1>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/wxcloudservice/wxcloudrun/src/scene/deploy/static_h5.html">微信云托管</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/22/%E4%BC%98%E9%9B%85%E7%9A%84%E4%BD%BF%E7%94%A8cdn/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/31959790?v=4">
+      <meta itemprop="name" content="nianwu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="nianwu's blogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/09/22/%E4%BC%98%E9%9B%85%E7%9A%84%E4%BD%BF%E7%94%A8cdn/" class="post-title-link" itemprop="url">优雅的使用cdn</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-09-22 04:27:33" itemprop="dateCreated datePublished" datetime="2024-09-22T04:27:33+08:00">2024-09-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-02-17 14:51:53" itemprop="dateModified" datetime="2025-02-17T14:51:53+08:00">2025-02-17</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>705</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1>cdn 网站的选择</h1>
+<ul>
+<li>我习惯使用 <a target="_blank" rel="noopener" href="https://unpkg.com/">unpkg</a>, 因为其跟 npm 绑定, 软件包发布到 npm 上, 就可以使用该cdn</li>
+</ul>
+<h1>使用方式, 使用 moment 作为例子</h1>
+<ol>
+<li>在 <a target="_blank" rel="noopener" href="https://www.npmjs.com/">npm</a> 网站中搜索 moment</li>
+<li>点开 code 标签</li>
+<li>观察目录结构, 直接目录下没有 min.js 结尾文件, 但是有个 min 目录</li>
+<li>点开 min 目录, 发现 <code>locales.min.js</code> <code>moment-with-locales.min.js</code> <code>moment.min.js</code></li>
+<li>根据项目了解, 这三个文件分别对应 moment 本地化, moment 本体 + moment 本地化, moment 本体(不含本地化)</li>
+<li>依据习惯, 使用 <code>moment-with-locales.min.js</code></li>
+<li>手动拼接目录: <a target="_blank" rel="noopener" href="https://unpkg.com/moment/min/moment-with-locales.min.js">https://unpkg.com/moment/min/moment-with-locales.min.js</a> 并点击访问</li>
+<li>目录访问成功, 证明路径没有问题</li>
+<li>将路径组装为 js 标签: <code>&lt;script src=&quot;https://unpkg.com/moment/min/moment-with-locales.min.js&quot; /&gt;</code></li>
+<li>将 js 标签放到 h5 中</li>
+<li>在 h5 js 代码中使用: <code>console.log(moment)</code></li>
+</ol>
+<h1>例外情况</h1>
+<ol>
+<li>大部分情况下, 使用 cdn 导入的包会生成一个与包名相同的变量, 如 moment 包, 会生成 moment 变量, 直接在 h5 代码中调用即可</li>
+<li>然而少部分包, 由于使用量大, 其生成的变量名与包名不同, 而是使用一些符号, 例子如下:
+<ol>
+<li>lodash =&gt; _</li>
+<li>jquery =&gt; $</li>
+</ol>
+</li>
+</ol>
+<h1>如何寻找全局变量名, 以 lodash 为例</h1>
+<h2 id="查看源码">查看源码</h2>
+<ol>
+<li>浏览器中搜索: <code>unpkg lodash</code>, 点击进入网页版
+<blockquote>
+<p>或者直接拼接链接进入网页版: <code>https://unpkg.com/browse/lodash@4.17.21/</code><br>
+最后一个 / 不能省略</p>
+</blockquote>
+</li>
+<li>依据经验, 搜索 <code>lodash.js</code>, 点开查看源码如下</li>
+</ol>
+<blockquote>
+<p>也可能叫其他的, 如 index.js, lodash.mjs 等<br>
+也可以直接查看 <code>lodash.min.js</code> , 因为代码压缩过, 可读性不好, 需要复制下来通过编辑器格式化后查看<br>
+不想下载也可以试试通过浏览器的请求预览, 看是否能够格式化代码</p>
+</blockquote>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">;(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/** Detect free variable `global` from Node.js. */</span></span><br><span class="line">  <span class="keyword">var</span> freeGlobal = <span class="keyword">typeof</span> <span class="variable language_">global</span> == <span class="string">&#x27;object&#x27;</span> &amp;&amp; <span class="variable language_">global</span> &amp;&amp; <span class="variable language_">global</span>.<span class="property">Object</span> === <span class="title class_">Object</span> &amp;&amp; <span class="variable language_">global</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/** Detect free variable `self`. */</span></span><br><span class="line">  <span class="keyword">var</span> freeSelf = <span class="keyword">typeof</span> self == <span class="string">&#x27;object&#x27;</span> &amp;&amp; self &amp;&amp; self.<span class="property">Object</span> === <span class="title class_">Object</span> &amp;&amp; self;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/** Used as a reference to the global object. */</span></span><br><span class="line">  <span class="keyword">var</span> root = freeGlobal || freeSelf || <span class="title class_">Function</span>(<span class="string">&#x27;return this&#x27;</span>)();</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="comment">// Export lodash.</span></span><br><span class="line">  <span class="keyword">var</span> _ = <span class="title function_">runInContext</span>();</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Some AMD build optimizers, like r.js, check for condition patterns like:</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> define == <span class="string">&#x27;function&#x27;</span> &amp;&amp; <span class="keyword">typeof</span> define.<span class="property">amd</span> == <span class="string">&#x27;object&#x27;</span> &amp;&amp; define.<span class="property">amd</span>) &#123;</span><br><span class="line">    <span class="comment">// Expose Lodash on the global object to prevent errors when Lodash is</span></span><br><span class="line">    <span class="comment">// loaded by a script tag in the presence of an AMD loader.</span></span><br><span class="line">    <span class="comment">// See http://requirejs.org/docs/errors.html#mismatch for more details.</span></span><br><span class="line">    <span class="comment">// Use `_.noConflict` to remove Lodash from the global object.</span></span><br><span class="line">    root.<span class="property">_</span> = _;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Define as an anonymous module so, through path mapping, it can be</span></span><br><span class="line">    <span class="comment">// referenced as the &quot;underscore&quot; module.</span></span><br><span class="line">    <span class="title function_">define</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> _;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// Check for `exports` after `define` in case a build optimizer adds it.</span></span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (freeModule) &#123;</span><br><span class="line">    <span class="comment">// Export for Node.js.</span></span><br><span class="line">    (freeModule.<span class="property">exports</span> = _).<span class="property">_</span> = _;</span><br><span class="line">    <span class="comment">// Export for CommonJS support.</span></span><br><span class="line">    freeExports.<span class="property">_</span> = _;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// Export to the global object.</span></span><br><span class="line">    root.<span class="property">_</span> = _;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;.<span class="title function_">call</span>(<span class="variable language_">this</span>));</span><br></pre></td></tr></table></figure>
+<ol>
+<li>省略的都是定义方法的代码, 不会实际执行</li>
+<li>依据经验, global, self 等全局变量是 import 之前时代的 打包约定, 这里忽略即可</li>
+<li>所以 root 变量即为 this, 所以在 h5 中直接使用 _ 即可获得 lodash 对象, 并调用 debounce 等方法</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/21/%E5%BF%AB%E9%80%9F%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AA-ele-vue-h5-%E9%A1%B5%E9%9D%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/31959790?v=4">
+      <meta itemprop="name" content="nianwu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="nianwu's blogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/09/21/%E5%BF%AB%E9%80%9F%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AA-ele-vue-h5-%E9%A1%B5%E9%9D%A2/" class="post-title-link" itemprop="url">快速编写一个 ele vue h5 页面</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-09-21 18:01:33" itemprop="dateCreated datePublished" datetime="2024-09-21T18:01:33+08:00">2024-09-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-02-17 14:51:53" itemprop="dateModified" datetime="2025-02-17T14:51:53+08:00">2025-02-17</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>224</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;zh-CN&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 引入样式 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://unpkg.com/element-ui/lib/theme-chalk/index.css&quot;</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 引入组件库 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://unpkg.com/element-ui/lib/index.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 引入axios --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://unpkg.com/axios/dist/axios.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- moment --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment-with-locales.min.js&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">integrity</span>=<span class="string">&quot;sha512-4F1cxYdMiAW98oomSLaygEwmCnIP38pb4Kx70yQYqRwLVCs3DbRumfBq82T08g/4LJ/smbFGFpmeFlQgoDccgg==&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">crossorigin</span>=<span class="string">&quot;anonymous&quot;</span> <span class="attr">referrerpolicy</span>=<span class="string">&quot;no-referrer&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">    &#123;&#123; message &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    moment.<span class="title function_">locale</span>(<span class="string">&#x27;zh-CN&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">    moment.<span class="property">defaultFormat</span> = <span class="string">&#x27;YYYY-MM-DD HH:mm:ss&#x27;</span></span></span><br><span class="line"><span class="language-javascript">    moment.<span class="property">fn</span>.<span class="property">toJSON</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="title function_">format</span>()</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">/**</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">     * 格式化为字符串</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">     * <span class="doctag">@returns</span> 序列化后的字符串, 如 1.2:3:4:55, 表示 1天 2小时 3分 4秒 550 毫秒</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">     */</span></span></span><br><span class="line"><span class="language-javascript">    moment.<span class="property">duration</span>.<span class="property">fn</span>.<span class="property">format</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">let</span> result = [</span></span><br><span class="line"><span class="language-javascript">        <span class="title class_">Math</span>.<span class="title function_">floor</span>(<span class="variable language_">this</span>.<span class="title function_">asDays</span>())</span></span><br><span class="line"><span class="language-javascript">        + <span class="string">&#x27;.&#x27;</span> + <span class="title class_">Math</span>.<span class="title function_">floor</span>(<span class="variable language_">this</span>.<span class="title function_">hours</span>()).<span class="title function_">toString</span>().<span class="title function_">padStart</span>(<span class="number">2</span>, <span class="number">0</span>),</span></span><br><span class="line"><span class="language-javascript">        <span class="title class_">Math</span>.<span class="title function_">floor</span>(<span class="variable language_">this</span>.<span class="title function_">minutes</span>()).<span class="title function_">toString</span>().<span class="title function_">padStart</span>(<span class="number">2</span>, <span class="number">0</span>),</span></span><br><span class="line"><span class="language-javascript">        <span class="title class_">Math</span>.<span class="title function_">floor</span>(<span class="variable language_">this</span>.<span class="title function_">seconds</span>()).<span class="title function_">toString</span>().<span class="title function_">padStart</span>(<span class="number">2</span>, <span class="number">0</span>)</span></span><br><span class="line"><span class="language-javascript">        + <span class="string">&#x27;.&#x27;</span> + <span class="title class_">Math</span>.<span class="title function_">floor</span>(<span class="variable language_">this</span>.<span class="title function_">milliseconds</span>())</span></span><br><span class="line"><span class="language-javascript">      ].<span class="title function_">join</span>(<span class="string">&#x27;:&#x27;</span>).<span class="title function_">replace</span>(<span class="regexp">/0+$/</span>, <span class="string">&#x27;&#x27;</span>).<span class="title function_">replace</span>(<span class="regexp">/\.0*$/</span>, <span class="string">&#x27;&#x27;</span>).<span class="title function_">replace</span>(<span class="regexp">/^0\./</span>, <span class="string">&#x27;&#x27;</span>).<span class="title function_">replace</span>(<span class="regexp">/^00:/</span>, <span class="string">&#x27;&#x27;</span>).<span class="title function_">replace</span>(<span class="regexp">/^00:/</span>, <span class="string">&#x27;&#x27;</span>).<span class="title function_">replace</span>(<span class="regexp">/^0+/</span>, <span class="string">&#x27;&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">return</span> result</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">    moment.<span class="property">duration</span>.<span class="property">fn</span>.<span class="property">toString</span> = moment.<span class="property">duration</span>.<span class="property">fn</span>.<span class="property">format</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="title class_">Vue</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">$console</span> = <span class="variable language_">console</span></span></span><br><span class="line"><span class="language-javascript">    <span class="title class_">Vue</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">$moment</span> = moment</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> app = <span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">el</span>: <span class="string">&#x27;#app&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">data</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">message</span>: <span class="string">&#x27;Hello Vue!&#x27;</span></span></span><br><span class="line"><span class="language-javascript">      &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;)</span></span><br><span class="line"><span class="language-javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/15/%E9%9A%8F%E6%89%8B%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/31959790?v=4">
+      <meta itemprop="name" content="nianwu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="nianwu's blogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/09/15/%E9%9A%8F%E6%89%8B%E8%AE%B0/" class="post-title-link" itemprop="url">随手记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-09-15 01:25:10" itemprop="dateCreated datePublished" datetime="2024-09-15T01:25:10+08:00">2024-09-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-02-17 14:51:53" itemprop="dateModified" datetime="2025-02-17T14:51:53+08:00">2025-02-17</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>926</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1>todo</h1>
+<ul>
+<li>[ ] 使用 unpkg 创建你的代码包( 简单, 高效, 可使用 unpkg 快速引用)</li>
+<li>[ ] el-card 使用起来和 div 有些区别, 如 div 可以设置 max-height: 100%来限制高度, 但是元素放到 el-box 中就不可以使用了</li>
+<li>[ ] 用于方便快捷生成 vue 代码的网页</li>
+<li>[ ] 使用 docker 作为开发环境</li>
+</ul>
+<h1>js 写法中 .toString 和 + '' 的区别</h1>
+<ul>
+<li>
+<p>一些项目中会使用 + '' 来代替 .toString() 方法, 该写法在部分情况下会失效, 究其原因是因为 <code>+ ''</code> 本质上是运算符, 调用的 <code>valueOf</code> 方法, 又因为大部分对象的 valueOf 和 toString 运算结果一致, 所以没有问题, 但是使用复杂的值类型对象, 如 moment 的时候, 就会出现问题</p>
+</li>
+<li>
+<p>现象: 一些项目中会使用 <code>+ ''</code> 来代替 <code>.toString</code>, 因为第一种写法更简单</p>
+</li>
+<li>
+<p>隐患: <code>+ ''</code> 中的 <code>+</code> 是运算符, 调用的是 <code>valueOf</code>, 而非 <code>toString</code>, 当一个对象的 <code>valueOf</code> 和 <code>toString</code> 运行结果不一致的时候, 会出现错误</p>
+</li>
+<li>
+<p>举例:</p>
+</li>
+</ul>
+<h1>vue 常用配置</h1>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Vue</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">$console</span> = <span class="variable language_">console</span></span><br><span class="line"><span class="title class_">Vue</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">$moment</span> = moment</span><br></pre></td></tr></table></figure>
+<h1>moment</h1>
+<h2 id="安装-moment">安装 moment</h2>
+<ul>
+<li>moment 分为 moment, moment-timezone 两个包, 据我习惯, 一般将两个包全部安装</li>
+<li>npm 安装: <code>npm install moment moment-timezone --save -y  # npm</code></li>
+<li>cdn 引用:</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment-with-locales.min.js&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">integrity</span>=<span class="string">&quot;sha512-4F1cxYdMiAW98oomSLaygEwmCnIP38pb4Kx70yQYqRwLVCs3DbRumfBq82T08g/4LJ/smbFGFpmeFlQgoDccgg==&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">crossorigin</span>=<span class="string">&quot;anonymous&quot;</span> <span class="attr">referrerpolicy</span>=<span class="string">&quot;no-referrer&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://cdnjs.com/libraries/moment.js">其他包</a></li>
+</ul>
+<h2 id="初始化">初始化</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">moment.<span class="title function_">locale</span>(<span class="string">&#x27;zh-CN&#x27;</span>)</span><br><span class="line">moment.<span class="property">defaultFormat</span> = <span class="string">&#x27;YYYY-MM-DD HH:mm:ss&#x27;</span></span><br><span class="line">moment.<span class="property">fn</span>.<span class="property">toJSON</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="title function_">format</span>()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 格式化为字符串</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns</span> 序列化后的字符串, 如 1.2:3:4:55, 表示 1天 2小时 3分 4秒 550 毫秒</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">moment.<span class="property">duration</span>.<span class="property">fn</span>.<span class="property">format</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> result = [</span><br><span class="line">    <span class="title class_">Math</span>.<span class="title function_">floor</span>(<span class="variable language_">this</span>.<span class="title function_">asDays</span>())</span><br><span class="line">    + <span class="string">&#x27;.&#x27;</span> + <span class="title class_">Math</span>.<span class="title function_">floor</span>(<span class="variable language_">this</span>.<span class="title function_">hours</span>()).<span class="title function_">toString</span>().<span class="title function_">padStart</span>(<span class="number">2</span>, <span class="number">0</span>),</span><br><span class="line">    <span class="title class_">Math</span>.<span class="title function_">floor</span>(<span class="variable language_">this</span>.<span class="title function_">minutes</span>()).<span class="title function_">toString</span>().<span class="title function_">padStart</span>(<span class="number">2</span>, <span class="number">0</span>),</span><br><span class="line">    <span class="title class_">Math</span>.<span class="title function_">floor</span>(<span class="variable language_">this</span>.<span class="title function_">seconds</span>()).<span class="title function_">toString</span>().<span class="title function_">padStart</span>(<span class="number">2</span>, <span class="number">0</span>)</span><br><span class="line">    + <span class="string">&#x27;.&#x27;</span> + <span class="title class_">Math</span>.<span class="title function_">floor</span>(<span class="variable language_">this</span>.<span class="title function_">milliseconds</span>())</span><br><span class="line">  ].<span class="title function_">join</span>(<span class="string">&#x27;:&#x27;</span>).<span class="title function_">replace</span>(<span class="regexp">/0+$/</span>, <span class="string">&#x27;&#x27;</span>).<span class="title function_">replace</span>(<span class="regexp">/\.0*$/</span>, <span class="string">&#x27;&#x27;</span>).<span class="title function_">replace</span>(<span class="regexp">/^0\./</span>, <span class="string">&#x27;&#x27;</span>).<span class="title function_">replace</span>(<span class="regexp">/^00:/</span>, <span class="string">&#x27;&#x27;</span>).<span class="title function_">replace</span>(<span class="regexp">/^00:/</span>, <span class="string">&#x27;&#x27;</span>).<span class="title function_">replace</span>(<span class="regexp">/^0+/</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br><span class="line">moment.<span class="property">duration</span>.<span class="property">fn</span>.<span class="property">toString</span> = moment.<span class="property">duration</span>.<span class="property">fn</span>.<span class="property">format</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// vue 中使用</span></span><br><span class="line"><span class="comment">// Vue.prototype.$moment = moment</span></span><br></pre></td></tr></table></figure>
+<h1>备份数据到sql</h1>
+<h2 id="安装">安装</h2>
+<ul>
+<li><code>apt install my-client -y</code></li>
+</ul>
+<h2 id="备份">备份</h2>
+<ul>
+<li><code>mysqldump --host=1.1.1.1 --user=test --password=test db tb1 tb2 &gt; db.sql</code>
+<blockquote>
+<p>将 1.1.1.1 服务器的 db 数据库 的 tb1, tb2 备份到 db.sql 文件, 账号密码分别为 test, test</p>
+</blockquote>
+</li>
+</ul>
+<h1>mycli</h1>
+<p>mycli 是一个命令, 用于在 linux 中连接mysql数据库并进行操作</p>
+<h2 id="基础命令">基础命令</h2>
+<ol>
+<li>使用参数连接: <code>mycli -h 11.11.11.11 -P 3306 -u root -p password db_1</code></li>
+<li>使用连接字符串连接: <code>mycli mysql://root:password@11.11.11.11:3306/db_1</code></li>
+<li>执行指定文件: <code>mycli mysql://root:password@11.11.11.11:3306/db_1 &lt; path/to/script.sql</code></li>
+<li>执行指定文件并将日志记录到指定文件: <code>mycli mysql://root:password@11.11.11.11:3306/db_1 -o output.txt &lt; path/to/script.sql</code>
+<blockquote>
+<p>该命令并未测试是否有效</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="常用sql">常用sql</h2>
+<blockquote>
+<p>该标题下所有sql都需要使用<a href="#%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4">基础命令</a> 连接之后使用</p>
+</blockquote>
+<ol>
+<li>列出数据库: <code>show databases</code></li>
+<li>列出表: <code>show tables</code></li>
+<li>查看帮助: <code>help</code></li>
+</ol>
+<h1>linux-运行当前目录下命令不加./</h1>
+<ul>
+<li>将  ~/.zshrc 中增加 <code>export PATH=$PATH:`pwd`</code></li>
+</ul>
+<h1>hexo 中增加快速创建博客命令</h1>
+<ol>
+<li>创建 new 文件并填入如下内容<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/zsh</span></span><br><span class="line">home=$(<span class="built_in">echo</span> <span class="variable">$HOME</span> | sed <span class="string">&#x27;s/\//\\\//&#x27;</span>)</span><br><span class="line">code $(hexo new post <span class="string">&quot;<span class="variable">$1</span>&quot;</span> | grep <span class="string">&quot;Created&quot;</span> | <span class="built_in">cut</span> -d<span class="string">&#x27; &#x27;</span> -f4- | sed <span class="string">&#x27;s/~/&#x27;</span><span class="string">&quot;<span class="variable">$home</span>&quot;</span><span class="string">&#x27;/&#x27;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li>运行 <code>chmod +x new</code> 赋予 new 执行权限</li>
+<li>参照 <a href="#linux-%E8%BF%90%E8%A1%8C%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E4%B8%8B%E5%91%BD%E4%BB%A4%E4%B8%8D%E5%8A%A0.md">linux-运行当前目录下命令不加.md</a> 配置运行当前目录命令不加 <code>./</code></li>
+<li>在博客目录中可直接运行 <code>new 测试博客</code> 新建文章</li>
+</ol>
+<h1>git同步状态检测</h1>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/zsh</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 检测本地git状态</span></span><br><span class="line">local_git_status=$(git status --porcelain)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检测本地git是否与远端git一致</span></span><br><span class="line">remote_git_status=$(git ls-remote --exit-code origin HEAD)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ $? -ne 0 ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;本地git与远端git不一致，无法继续执行脚本&quot;</span></span><br><span class="line">  <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果本地git状态不为空</span></span><br><span class="line"><span class="keyword">if</span> [ -n <span class="string">&quot;<span class="variable">$local_git_status</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;本地git状态不为空，无法继续执行脚本&quot;</span></span><br><span class="line">  <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果所有检查都通过，可以继续执行脚本</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;所有检查通过，脚本可以继续执行&quot;</span></span><br></pre></td></tr></table></figure>
+<h1>git 中文乱码</h1>
+<p><code>git config --global core.quotepath false</code></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/07/hexo-next-%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/31959790?v=4">
+      <meta itemprop="name" content="nianwu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="nianwu's blogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/06/07/hexo-next-%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/" class="post-title-link" itemprop="url">hexo next 评论功能</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-06-07 02:27:16" itemprop="dateCreated datePublished" datetime="2024-06-07T02:27:16+08:00">2024-06-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-02-17 14:51:53" itemprop="dateModified" datetime="2025-02-17T14:51:53+08:00">2025-02-17</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>274</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1>评论功能</h1>
+<h2 id="修改-themes-next-config-yml-文件">修改 <code>themes/next/_config.yml</code> 文件</h2>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">gitalk:</span><br><span class="line"><span class="deletion">- enable: false</span></span><br><span class="line"><span class="deletion">- github_id: # GitHub repo owner</span></span><br><span class="line"><span class="deletion">- repo: # Repository name to store issues</span></span><br><span class="line"><span class="deletion">- client_id: # GitHub Application Client ID</span></span><br><span class="line"><span class="deletion">- client_secret: # GitHub Application Client Secret</span></span><br><span class="line"><span class="deletion">- admin_user: # GitHub repo owner and collaborators, only these guys can initialize gitHub issues</span></span><br><span class="line"><span class="deletion">- distraction_free_mode: true # Facebook-like distraction free mode</span></span><br><span class="line"><span class="deletion">- # Gitalk&#x27;s display language depends on user&#x27;s browser or system environment</span></span><br><span class="line"><span class="deletion">- # If you want everyone visiting your site to see a uniform language, you can set a force language value</span></span><br><span class="line"><span class="deletion">- # Available values: en | es-ES | fr | ru | zh-CN | zh-TW</span></span><br><span class="line"><span class="deletion">- language:</span></span><br><span class="line"><span class="addition">+ enable: true</span></span><br><span class="line"><span class="addition">+ github_id: nianwu # GitHub repo owner</span></span><br><span class="line"><span class="addition">+ repo: golb-gitalk # Repository name to store issues</span></span><br><span class="line"><span class="addition">+ client_id: xxxxxxxxx # GitHub Application Client ID</span></span><br><span class="line"><span class="addition">+ client_secret: xxxxxxxxxxxxxxxxxxxxxx # GitHub Application Client Secret</span></span><br><span class="line"><span class="addition">+ admin_user: nianwu # GitHub repo owner and collaborators, only these guys can initialize gitHub issues</span></span><br><span class="line"><span class="addition">+ distraction_free_mode: true # Facebook-like distraction free mode</span></span><br><span class="line"><span class="addition">+ # When the official proxy is not available, you can change it to your own proxy address</span></span><br><span class="line"><span class="addition">+ # proxy: https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token # This is official proxy adress</span></span><br><span class="line"><span class="addition">+ # Gitalk&#x27;s display language depends on user&#x27;s browser or system environment</span></span><br><span class="line"><span class="addition">+ # If you want everyone visiting your site to see a uniform language, you can set a force language value</span></span><br><span class="line"><span class="addition">+ # Available values: en | es-ES | fr | ru | zh-CN | zh-TW</span></span><br><span class="line"><span class="addition">+ language: zh-CN</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>ps: 其中的 proxy 选项是为了让国内能够使用评论功能, 但是此项目部署在 github, 所以能够看到博客的人不会需要代理, 故而此选项注释</p>
+</blockquote>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/%E5%8A%A0%E8%BD%BD%E8%BF%9B%E5%BA%A6%E6%9D%A1/">参考文档</a></p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="nianwu"
+      src="https://avatars.githubusercontent.com/u/31959790?v=4">
+  <p class="site-author-name" itemprop="name">nianwu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">nianwu</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">5k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">18 分钟</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+</body>
+</html>

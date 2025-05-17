@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+  </script>
+
+  <meta name="description" content="速览   项目地址：mai_ke&#x2F;tools   核心依赖：npm i esbuild pkg   esbuild：将源码及依赖打包成单一 JS 文件 pkg：将 JS 文件打包为可执行程序（如 .exe）     package.json 脚本配置： 123456&#123;  &quot;scripts&quot;: &#123;    &quot;start&quot;: &quot;nod">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node.js 视频下载工具开发总结">
+<meta property="og:url" content="http://example.com/2025/05/17/nodejs-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98-%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/index.html">
+<meta property="og:site_name" content="nianwu&#39;s blogs">
+<meta property="og:description" content="速览   项目地址：mai_ke&#x2F;tools   核心依赖：npm i esbuild pkg   esbuild：将源码及依赖打包成单一 JS 文件 pkg：将 JS 文件打包为可执行程序（如 .exe）     package.json 脚本配置： 123456&#123;  &quot;scripts&quot;: &#123;    &quot;start&quot;: &quot;nod">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-05-17T13:25:36.000Z">
+<meta property="article:modified_time" content="2025-05-17T14:11:42.601Z">
+<meta property="article:author" content="nianwu">
+<meta property="article:tag" content="nodejs">
+<meta property="article:tag" content="视频下载">
+<meta property="article:tag" content="进度条展示">
+<meta property="article:tag" content="打包">
+<meta property="article:tag" content="es6语法兼容">
+<meta property="article:tag" content="axios优化">
+<meta property="article:tag" content="axios配置query参数">
+<meta property="article:tag" content="文件名合法化">
+<meta property="article:tag" content="数据展示">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2025/05/17/nodejs-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98-%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Node.js 视频下载工具开发总结 | nianwu's blogs</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">nianwu's blogs</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" title="Search (Ctrl + K)">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/nianwu" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/05/17/nodejs-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98-%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/31959790?v=4">
+      <meta itemprop="name" content="nianwu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="nianwu's blogs">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Node.js 视频下载工具开发总结
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-05-17 21:25:36 / 修改时间：22:11:42" itemprop="dateCreated datePublished" datetime="2025-05-17T21:25:36+08:00">2025-05-17</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>623</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1>速览</h1>
+<ul>
+<li>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://gitee.com/nianwu/yll_linag_shi_ke_tang/tree/dev/tools">mai_ke/tools</a></p>
+</li>
+<li>
+<p>核心依赖：<code>npm i esbuild pkg</code></p>
+<blockquote>
+<ul>
+<li><code>esbuild</code>：将源码及依赖打包成单一 JS 文件</li>
+<li><code>pkg</code>：将 JS 文件打包为可执行程序（如 <code>.exe</code>）</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p><code>package.json</code> 脚本配置：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;start&quot;</span><span class="punctuation">:</span> <span class="string">&quot;node src/index.js&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;build&quot;</span><span class="punctuation">:</span> <span class="string">&quot;esbuild src/index.js --bundle --platform=node --outfile=dist/app.js &amp;&amp; pkg dist/app.js --targets node16-win-x64 --output dist/app.exe &amp;&amp; echo dist/app.exe&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h1>技术要点拆解</h1>
+<h2 id="一、打包策略">一、打包策略</h2>
+<ul>
+<li>使用 <code>pkg</code> 将 Node.js 项目打包为 Windows 可执行程序；</li>
+<li>对于 <code>import</code> 语法支持有限，推荐先用 <code>esbuild</code> 打包成单一 CommonJS 文件；</li>
+<li><code>pkg</code> 无法打包动态 <code>require()</code>，必须预处理；</li>
+<li>示例命令：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg src/index.js -t node16-win-x64 -o dist/app.exe</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="二、ES6-模块兼容处理">二、ES6 模块兼容处理</h2>
+<ul>
+<li>
+<p>Webpack 配置复杂，未采用；</p>
+</li>
+<li>
+<p>使用 <code>esbuild</code> 简单快速，推荐用法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">esbuild src/index.js --bundle --platform=node --outfile=dist/app.js</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>--bundle</code>：将依赖打入同一文件；</li>
+<li><code>--platform=node</code>：打包为 Node 环境可执行；</li>
+<li><code>--outfile</code>：输出文件路径。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1>三、视频下载与进度条展示</h1>
+<p>文件下载核心逻辑位于 <code>utils/download_file</code>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">download_file</span>(<span class="params">url, output_path</span>) &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (process.<span class="property">platform</span> === <span class="string">&#x27;win32&#x27;</span>) &#123;</span><br><span class="line">      output_path = output_path.<span class="title function_">replace</span>(<span class="regexp">/\//g</span>, <span class="string">&#x27;\\&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    fs.<span class="title function_">access</span>(output_path)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`文件已存在，跳过下载: <span class="subst">$&#123;output_path&#125;</span>`</span>)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  &#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">    <span class="comment">// 文件不存在，继续下载</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> outputDir = path.<span class="title function_">dirname</span>(output_path)</span><br><span class="line">  <span class="keyword">await</span> fs.<span class="property">promises</span>.<span class="title function_">mkdir</span>(outputDir, &#123; <span class="attr">recursive</span>: <span class="literal">true</span> &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`正在下载: &quot;<span class="subst">$&#123;output_path&#125;</span>&quot;，按 Ctrl+C 可中断`</span>)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> &#123; data, headers &#125; = <span class="keyword">await</span> <span class="title function_">axios</span>(&#123;</span><br><span class="line">    url,</span><br><span class="line">    <span class="attr">method</span>: <span class="string">&#x27;GET&#x27;</span>,</span><br><span class="line">    <span class="attr">responseType</span>: <span class="string">&#x27;stream&#x27;</span></span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> totalLength = <span class="built_in">parseInt</span>(headers[<span class="string">&#x27;content-length&#x27;</span>], <span class="number">10</span>)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`文件大小: <span class="subst">$&#123;(totalLength / <span class="number">1024</span> / <span class="number">1024</span>).toFixed(<span class="number">2</span>)&#125;</span> MB`</span>)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> progressBar = <span class="keyword">new</span> <span class="title class_">ProgressBar</span>(<span class="string">&#x27;下载进度 [:bar] :percent :etas&#x27;</span>, &#123;</span><br><span class="line">    <span class="attr">width</span>: <span class="number">40</span>,</span><br><span class="line">    <span class="attr">complete</span>: <span class="string">&#x27;=&#x27;</span>,</span><br><span class="line">    <span class="attr">incomplete</span>: <span class="string">&#x27; &#x27;</span>,</span><br><span class="line">    <span class="attr">total</span>: totalLength</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> writer = <span class="title function_">createWriteStream</span>(output_path)</span><br><span class="line">  data.<span class="title function_">on</span>(<span class="string">&#x27;data&#x27;</span>, <span class="function"><span class="params">chunk</span> =&gt;</span> progressBar.<span class="title function_">tick</span>(chunk.<span class="property">length</span>))</span><br><span class="line">  data.<span class="title function_">pipe</span>(writer)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    writer.<span class="title function_">on</span>(<span class="string">&#x27;finish&#x27;</span>, resolve)</span><br><span class="line">    writer.<span class="title function_">on</span>(<span class="string">&#x27;error&#x27;</span>, reject)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="四、Axios-配置-query-参数">四、Axios 配置 query 参数</h2>
+<p>通过拦截器自动将 <code>query</code> 字段序列化并拼接到 URL 上：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">axios.<span class="property">interceptors</span>.<span class="property">request</span>.<span class="title function_">use</span>(</span><br><span class="line">  <span class="function">(<span class="params">config</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (config.<span class="property">query</span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> params = <span class="keyword">new</span> <span class="title class_">URLSearchParams</span>(config.<span class="property">query</span>).<span class="title function_">toString</span>()</span><br><span class="line">      config.<span class="property">url</span> += (config.<span class="property">url</span>.<span class="title function_">includes</span>(<span class="string">&#x27;?&#x27;</span>) ? <span class="string">&#x27;&amp;&#x27;</span> : <span class="string">&#x27;?&#x27;</span>) + params</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> config</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function">(<span class="params">error</span>) =&gt;</span> <span class="title class_">Promise</span>.<span class="title function_">reject</span>(error)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="五、文件名合法化处理">五、文件名合法化处理</h2>
+<p>防止文件名中包含非法字符导致保存失败：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">format_file_name</span>(<span class="params">name</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> invalidChars = <span class="regexp">/[&lt;&gt;:&quot;/\\|?*\x00-\x1F]/g</span></span><br><span class="line">  <span class="keyword">return</span> name.<span class="title function_">replace</span>(invalidChars, <span class="string">&#x27;_&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="六、数据展示与调试">六、数据展示与调试</h2>
+<p>通过子进程方式将数据输出至 VS Code 编辑器中：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">open_vscode_with_data</span> = (<span class="params">data</span>) =&gt; &#123;</span><br><span class="line">  data = <span class="title function_">try_parse_json</span>(data)</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> data !== <span class="string">&#x27;string&#x27;</span>) &#123;</span><br><span class="line">    data = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(data, <span class="literal">null</span>, <span class="number">2</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> child = <span class="title function_">spawn</span>(<span class="string">&#x27;code&#x27;</span>, [<span class="string">&#x27;-&#x27;</span>], &#123;</span><br><span class="line">    <span class="attr">stdio</span>: [<span class="string">&#x27;pipe&#x27;</span>, <span class="string">&#x27;inherit&#x27;</span>, <span class="string">&#x27;inherit&#x27;</span>]</span><br><span class="line">  &#125;)</span><br><span class="line">  child.<span class="property">stdin</span>.<span class="title function_">write</span>(data)</span><br><span class="line">  child.<span class="property">stdin</span>.<span class="title function_">end</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h1>后续功能展望</h1>
+<h2 id="✅-数据展示优化">✅ 数据展示优化</h2>
+<ul>
+<li>根据内容长度自动切换输出方式（控制台或编辑器）；</li>
+<li>自动检测系统中是否安装 VS Code / Vim / Sublime，并优先选择可用编辑器；</li>
+</ul>
+<h2 id="✅-下载逻辑增强">✅ 下载逻辑增强</h2>
+<ul>
+<li>支持并发下载；</li>
+<li>添加下载重试、断点续传机制；</li>
+<li>UI 层支持总进度条 + 单任务进度条；</li>
+</ul>
+<hr>
+<p>如有建议或使用问题，欢迎留言交流！</p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>nianwu
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://example.com/2025/05/17/nodejs-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98-%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/" title="Node.js 视频下载工具开发总结">http://example.com/2025/05/17/nodejs-项目实战-视频下载/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/nodejs/" rel="tag"># nodejs</a>
+              <a href="/tags/%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/" rel="tag"># 视频下载</a>
+              <a href="/tags/%E8%BF%9B%E5%BA%A6%E6%9D%A1%E5%B1%95%E7%A4%BA/" rel="tag"># 进度条展示</a>
+              <a href="/tags/%E6%89%93%E5%8C%85/" rel="tag"># 打包</a>
+              <a href="/tags/es6%E8%AF%AD%E6%B3%95%E5%85%BC%E5%AE%B9/" rel="tag"># es6语法兼容</a>
+              <a href="/tags/axios%E4%BC%98%E5%8C%96/" rel="tag"># axios优化</a>
+              <a href="/tags/axios%E9%85%8D%E7%BD%AEquery%E5%8F%82%E6%95%B0/" rel="tag"># axios配置query参数</a>
+              <a href="/tags/%E6%96%87%E4%BB%B6%E5%90%8D%E5%90%88%E6%B3%95%E5%8C%96/" rel="tag"># 文件名合法化</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%B1%95%E7%A4%BA/" rel="tag"># 数据展示</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/02/21/%E6%90%9C%E7%8B%97%E8%BE%93%E5%85%A5%E6%B3%95%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9F%AD%E8%AF%AD/" rel="prev" title="搜狗输入法自定义短语">
+      <i class="fa fa-chevron-left"></i> 搜狗输入法自定义短语
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">速览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">技术要点拆解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%89%93%E5%8C%85%E7%AD%96%E7%95%A5"><span class="nav-number">2.1.</span> <span class="nav-text">一、打包策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81ES6-%E6%A8%A1%E5%9D%97%E5%85%BC%E5%AE%B9%E5%A4%84%E7%90%86"><span class="nav-number">2.2.</span> <span class="nav-text">二、ES6 模块兼容处理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">三、视频下载与进度条展示</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81Axios-%E9%85%8D%E7%BD%AE-query-%E5%8F%82%E6%95%B0"><span class="nav-number">3.1.</span> <span class="nav-text">四、Axios 配置 query 参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E6%96%87%E4%BB%B6%E5%90%8D%E5%90%88%E6%B3%95%E5%8C%96%E5%A4%84%E7%90%86"><span class="nav-number">3.2.</span> <span class="nav-text">五、文件名合法化处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E6%95%B0%E6%8D%AE%E5%B1%95%E7%A4%BA%E4%B8%8E%E8%B0%83%E8%AF%95"><span class="nav-number">3.3.</span> <span class="nav-text">六、数据展示与调试</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">后续功能展望</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%9C%85-%E6%95%B0%E6%8D%AE%E5%B1%95%E7%A4%BA%E4%BC%98%E5%8C%96"><span class="nav-number">4.1.</span> <span class="nav-text">✅ 数据展示优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%9C%85-%E4%B8%8B%E8%BD%BD%E9%80%BB%E8%BE%91%E5%A2%9E%E5%BC%BA"><span class="nav-number">4.2.</span> <span class="nav-text">✅ 下载逻辑增强</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="nianwu"
+      src="https://avatars.githubusercontent.com/u/31959790?v=4">
+  <p class="site-author-name" itemprop="name">nianwu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">nianwu</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">5k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">18 分钟</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'Ov23likDLFFdHn4ADWox',
+      clientSecret: '6d71c877aa12ced0d94c77c4a135c6f4e80e5305',
+      repo        : 'golb-gitalk',
+      owner       : 'nianwu',
+      admin       : ['nianwu'],
+      id          : 'd1831d4c5a9930a5fb703094bd0bf294',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>
